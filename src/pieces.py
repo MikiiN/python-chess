@@ -30,6 +30,7 @@ class Piece:
             raise RuntimeError("Invalid position")
     
     
+    # TODO need better optimization
     # get all possible piece moves (moves against game logic too)
     def _get_all_moves(self, shifts: list[tuple[int, int]]):
         result = []
