@@ -50,3 +50,21 @@ class Board:
             self.board[new_x][new_y] = piece
         except Exception:
             raise RuntimeError("Invalid board position")
+    
+    
+    def get_piece_available_moves(self, piece: Piece):
+        piece_type = type(piece)
+        if piece_type is King:
+            pass
+        elif piece_type is Queen:
+            pass
+        elif piece_type is Bishop:
+            pass
+        elif piece_type is Knight:
+            pass
+        elif piece_type is Rook:
+            pass
+        elif piece_type is Pawn:
+            pass
+        else:
+            raise RuntimeError('Invalid piece type')
