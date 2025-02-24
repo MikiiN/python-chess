@@ -30,6 +30,8 @@ class Board:
                 Knight(7, 6, down_player), Rook(7, 7, down_player)
             ],
         ]
+        self.up_player = up_player
+        self.down_player = down_player
     
     
     def get_piece_by_pos(self, x: int, y: int):
@@ -58,22 +60,7 @@ class Board:
     
     
     def get_piece_available_moves(self, piece: Piece):
-        # piece_type = type(piece)
-        # if piece_type is King:
-        #     pass
-        # elif piece_type is Queen:
-        #     pass
-        # elif piece_type is Bishop:
-        #     pass
-        # elif piece_type is Knight:
-        #     pass
-        # elif piece_type is Rook:
-        #     pass
-        # elif piece_type is Pawn:
-        #     pass
-        # else:
-        #     raise RuntimeError('Invalid piece type')
-        pass
+        return piece.get_moves(self)
 
 
 
@@ -127,15 +114,24 @@ class Piece:
         return True
     
     
-    # TODO need optimization
-    # get all possible piece moves
     def _get_moves(self, board: Board):
+        shifts = self.get_shifts()
         result = []
-        for shift in self._SHIFTS:
-            pos = (self.x + shift[0], self.y + shift[1])
-            if not self._is_in_board(pos):
-                continue
-            result.append(pos)
+        for shift in shifts:
+            for i in range(1, 8):
+                pos = self._calculate_new_pos(
+                    tuple([x*i for x in shift])
+                )
+                if not self._is_in_board(pos):
+                    break
+                piece = board.get_piece_by_pos(pos[0], pos[1])
+                if piece == None:
+                    result.append(pos)
+                elif not self.is_same_color(piece):
+                    result.append(pos)
+                    break
+                else:
+                    break
         return result
 
     
@@ -182,27 +178,6 @@ class Queen(Piece):
             (1, 0), (-1, 0), (0, 1), (0, -1)
         ]
         super().__init__(x, y, p_type, shifts)
-
-    
-    def _get_moves(self, board: Board):
-        shifts = self.get_shifts()
-        result = []
-        for shift in shifts:
-            for i in range(1, 8):
-                pos = self._calculate_new_pos(
-                    tuple([x*i for x in shift])
-                )
-                if not self._is_in_board(pos):
-                    break
-                piece = board.get_piece_by_pos(pos[0], pos[1])
-                if piece == None:
-                    result.append(pos)
-                elif not self.is_same_color(piece):
-                    result.append(pos)
-                    break
-                else:
-                    break
-        return result
                 
 
 
@@ -232,6 +207,21 @@ class Knight(Piece):
             (1, 2), (1, -2), (-1, 2), (-1, -2)
         ]
         super().__init__(x, y, p_type, shifts)
+    
+    
+    def _get_moves(self, board: Board):
+        result = []
+        for shift in self._SHIFTS:
+            pos = self._calculate_new_pos(shift)
+            if not self._is_in_board(pos):
+                continue
+            if not board.is_space_empty(pos):
+                continue
+            piece = board.get_piece_by_pos(pos[0], pos[1])
+            if self.is_same_color(piece):
+                continue 
+            result.append(pos)
+        return result
         
 
 
@@ -260,3 +250,38 @@ class Pawn(Piece):
             (1, -1), (1, 1), (1, 0), (2, 0)
         ]
         super().__init__(x, y, p_type, shifts)
+    
+    
+    # TODO need some love (ugly implementation)
+    def _get_moves(self, board: Board):
+        result = []
+        if self.type == board.up_player:
+            direction = -1
+        else:
+            direction = 1
+            
+        pos_forward = self._calculate_new_pos((direction, 0))
+        if self._is_in_board(pos_forward):
+            if board.is_space_empty(pos_forward[0], pos_forward[1]):
+                result.append(pos_forward)
+        if self.x == 1 and self.type == board.up_player \
+            or self.x == 6 and self.type == board.down_player:
+            pos_forward = self._calculate_new_pos((direction*2, 0))
+            if self._is_in_board(pos_forward):
+                if board.is_space_empty(pos_forward[0], pos_forward[1]):
+                    result.append(pos_forward)
+        
+        pos_left = self._calculate_new_pos((direction, -direction))
+        if self._is_in_board(pos_left):
+            piece = board.get_piece_by_pos(pos_left[0], pos_left[1])
+            if piece != None:
+                if not self.is_same_color(piece):
+                    result.append(pos_left)
+        
+        pos_right = self._calculate_new_pos((direction, direction))
+        if self._is_in_board(pos_right):
+            piece = board.get_piece_by_pos(pos_right[0], pos_right[1])
+            if piece != None:
+                if not self.is_same_color(piece):
+                    result.append(pos_right)
+        return result
