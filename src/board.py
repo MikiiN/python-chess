@@ -1,4 +1,5 @@
 from __future__ import annotations
+from typing import List, Dict
 import enum
 
 class Board:
@@ -33,6 +34,16 @@ class Board:
         self.up_player = up_player
         self.down_player = down_player
     
+        # store pieces in array
+        self.pieces : Dict[List[Piece]]
+        self.pieces[self.up_player] = []
+        self.pieces[self.down_player] = []
+        for i in range(0, 2):
+            for j in range(0, 8):
+                self.pieces[self.up_player].append(self.board[i][j])
+                self.pieces[self.down_player].append(self.board[i+6][j])
+                
+    
     
     def get_piece_by_pos(self, x: int, y: int):
         try:
@@ -61,6 +72,14 @@ class Board:
     
     def get_piece_available_moves(self, piece: Piece):
         return piece.get_moves(self)
+    
+    
+    def is_pos_threatened_by_opponent(self, player: PieceType, x, y):
+        opponent = PieceType(not player.value)
+        for opponent_piece in self.pieces[opponent]:
+            if opponent_piece.is_threating_pos(x, y, self):
+                return True
+        return False
 
 
 
@@ -135,6 +154,11 @@ class Piece:
         return result
 
     
+    def is_threating_pos(self, x, y, board: Board):
+        moves = self.get_moves(board)
+        return (x, y) in moves 
+    
+    
     def get_moves(self, board: Board):
         if self.available_moves == None:
             self.available_moves = self._get_moves(board)
@@ -160,6 +184,13 @@ class King(Piece):
         super().__init__(x, y, p_type, shifts)
     
     
+    def is_check(self, board: Board):
+        return board.is_pos_threatened_by_opponent(
+            self.type,
+            self.x, self.y
+        )
+    
+    
     # TODO need to look for checks
     def _get_moves(self, board: Board):
         pass
@@ -178,7 +209,7 @@ class Queen(Piece):
             (1, 0), (-1, 0), (0, 1), (0, -1)
         ]
         super().__init__(x, y, p_type, shifts)
-                
+
 
 
 class Bishop(Piece):
