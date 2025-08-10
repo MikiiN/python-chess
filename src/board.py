@@ -184,17 +184,29 @@ class King(Piece):
         super().__init__(x, y, p_type, shifts)
     
     
-    def is_check(self, board: Board):
+    def _is_check(self, x, y, board: Board):
         return board.is_pos_threatened_by_opponent(
             self.type,
-            self.x, self.y
+            x, y
         )
     
+    def is_check(self, board: Board):
+        return self._is_check(self.x, self.y, board)
     
-    # TODO need to look for checks
-    def _get_moves(self, board: Board):
-        pass
-
+    
+    def get_moves(self, board: Board):
+        self.available_moves = []
+        available_moves = self._get_moves(board)
+        for move in available_moves:
+            if not self._is_check(move[0], move[1], board):
+                self.available_moves.append(move)
+        return self.available_moves
+    
+    
+    def is_mate(self, board: Board):
+        moves = self.get_moves(board)
+        return moves == []
+            
 
 
 class Queen(Piece):
