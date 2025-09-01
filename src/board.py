@@ -41,15 +41,20 @@ class Board:
         for i in range(0, 2):
             for j in range(0, 8):
                 self.pieces[self.up_player].append(self.board[i][j])
-                self.pieces[self.down_player].append(self.board[i+6][j])
-                
+                self.pieces[self.down_player].append(self.board[i+6][j])        
     
     
-    def get_piece_by_pos(self, x: int, y: int):
+    def get_piece_by_pos(self, x: int, y: int) -> Piece:
         try:
             return self.board[x][y]
         except Exception:
             raise RuntimeError("Invalid board position")
+    
+    
+    def get_king(self, player: PieceType):
+        for piece in self.pieces[player]:
+            if isinstance(piece, King):
+                return piece
         
     
     def move_piece(
@@ -181,7 +186,13 @@ class King(Piece):
             (-1, -1), (1, -1), (-1, 1), (1, 1), 
             (1, 0), (-1, 0), (0, 1), (0, -1)
         ]
+        self.moved = False
         super().__init__(x, y, p_type, shifts)
+    
+    
+    def move(self, new_x, new_y):
+        self.moved = True
+        super().move(new_x, new_y)
     
     
     def _is_check(self, x, y, board: Board):
@@ -278,8 +289,14 @@ class Rook(Piece):
         shifts = [
             (1, 0), (0, 1), (-1, 0), (0, -1)
         ]
+        self.moved = False
         super().__init__(x, y, p_type, shifts)
         
+    
+    def move(self, new_x, new_y):
+        self.moved = True
+        super().move(new_x, new_y)
+
 
 
 class Pawn(Piece):
