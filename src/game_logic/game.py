@@ -1,5 +1,5 @@
 import enum
-import src.board as brd
+import game_logic.board as brd
 
 
 # for future use
@@ -33,4 +33,8 @@ class Game:
         black_king = self.board.get_king(brd.PieceType.BLACK)
         white_king = self.board.get_king(brd.PieceType.WHITE)
         
-        return black_king.is_mate(self.board) or white_king.is_mate(self.board)
+        if black_king.is_mate(self.board):
+            return True, brd.PieceType.WHITE
+        if white_king.is_mate(self.board):
+            return True, brd.PieceType.BLACK
+        return False, None
