@@ -172,3 +172,7 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+
+# generated python class from .ui files
+src/view/ui/*_ui.py
