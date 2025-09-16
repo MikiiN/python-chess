@@ -176,3 +176,5 @@ cython_debug/
 
 # generated python class from .ui files
 src/view/ui/*_ui.py
+
+.vscode/*

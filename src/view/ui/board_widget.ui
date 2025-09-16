@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>366</width>
+    <height>483</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QWidget" name="widget_8" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_9" native="true">
+       <property name="sizeIncrement">
+        <size>
+         <width>1</width>
+         <height>1</height>
+        </size>
+       </property>
+       <property name="baseSize">
+        <size>
+         <width>10</width>
+         <height>10</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_10" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_11" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_12" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_13" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_14" native="true"/>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QWidget" name="widget_5" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_4" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_3" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_6" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_2" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_7" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget" native="true"/>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_8">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QWidget" name="widget_50" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_51" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_52" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_53" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_54" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_55" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_56" native="true"/>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_7">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QWidget" name="widget_43" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_44" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_45" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_46" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_47" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_48" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_49" native="true"/>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_6">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QWidget" name="widget_36" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_37" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_38" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_39" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_40" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_41" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_42" native="true"/>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_5">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QWidget" name="widget_29" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_30" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_31" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_32" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_33" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_34" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_35" native="true"/>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QWidget" name="widget_22" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_23" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_24" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_25" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_26" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_27" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_28" native="true"/>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QWidget" name="widget_15" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_16" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_17" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_18" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_19" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_20" native="true"/>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_21" native="true"/>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
