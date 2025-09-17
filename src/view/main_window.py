@@ -4,6 +4,7 @@ from src.constants import GameMode, PlayerColor
 from src.view.ui.main_window_ui import Ui_MainWindow
 from src.view.menu_widget import MenuWidget
 from src.view.choose_side_widget import ChooseSideWidget
+from src.view.board_widget import BoardWidget
 
 
 class MainWindow(QMainWindow):    
@@ -23,7 +24,8 @@ class MainWindow(QMainWindow):
     def _init_widgets(self):
         self.widget_list = [
             MenuWidget(self),
-            ChooseSideWidget(self)
+            ChooseSideWidget(self),
+            BoardWidget(self)
         ]
     
     
@@ -44,9 +46,9 @@ class MainWindow(QMainWindow):
     
     def play_as_white_clicked(self):
         self.chosen_color = PlayerColor.WHITE
-        self.ui.stackedWidget.setCurrentIndex(1)
+        self.ui.stackedWidget.setCurrentIndex(2)
         
     
     def play_as_black_clicked(self):
         self.chosen_color = PlayerColor.BLACK
-        self.ui.stackedWidget.setCurrentIndex(1)
+        self.ui.stackedWidget.setCurrentIndex(2)

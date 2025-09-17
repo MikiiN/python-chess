@@ -11,5 +11,5 @@ class ChooseSideWidget(QWidget):
         self.ui.setupUi(self)
         self.ui.logoLabel.setPixmap(QPixmap('img/chess_game_icon.png'))
         self.ui.logoLabel.setScaledContents(True)
-        self.ui.whitePlayerButton.clicked.connect(main_window.one_player_clicked)
-        self.ui.blackPlayerButton.clicked.connect(main_window.one_player_clicked)
+        self.ui.whitePlayerButton.clicked.connect(main_window.play_as_white_clicked)
+        self.ui.blackPlayerButton.clicked.connect(main_window.play_as_black_clicked)
