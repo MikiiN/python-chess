@@ -25,7 +25,7 @@ class MainWindow(QMainWindow):
         self.widget_list = [
             MenuWidget(self),
             ChooseSideWidget(self),
-            BoardWidget(self)
+            BoardWidget(self, PlayerColor.WHITE)
         ]
     
     
